@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #343a40;
+    color: #FFF;
+}
+
+#word{
+    height: 150px;
+    border: 4px dashed #FFF;
+}
+
+button.btn-danger {
+    text-transform: uppercase;
+    font-size: 26px;
+    font-weight: bold;
+    height: 50px;
+
+}
+
+#game_stats {
+    margin: 2em;
+}
+
+#letters_used{
+    height: 150px;
+    border: 4px dashed #FFF;
+}
+
+
