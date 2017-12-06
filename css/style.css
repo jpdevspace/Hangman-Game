@@ -7,9 +7,13 @@ body {
     color: #FFF;
 }
 
-#word{
+h1.display-2 {
     height: 150px;
+    width: 90%;
     border: 4px dashed #FFF;
+    /* font-size: 200%; */
+    font-weight: bold;
+    letter-spacing: 3px;
 }
 
 button.btn-danger {
