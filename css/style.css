@@ -25,13 +25,17 @@ button.btn-danger {
 }
 
 #game_stats {
-    margin: 2em; 
+    margin: 1em; 
 }
 
 #letters_used{
     height: 150px;
     font-size: 250%;
     border: 4px dashed #ffc107;
+}
+
+div.alert {
+    margin: 1em 0;
 }
 
 
