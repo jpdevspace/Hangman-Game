@@ -1,19 +1,19 @@
 * {
     box-sizing: border-box;
 }
-
-body {
-    background-color: #343a40;
-    color: #FFF;
+.container {
+    margin-top: 2em;
+    padding: 1em 2em 1em 2em;
 }
-
 h1.display-2 {
     height: 150px;
     width: 90%;
-    border: 4px dashed #FFF;
-    /* font-size: 200%; */
+    border: 10px solid #FFF;
+    border-radius: 35px;
+    padding: 0.1em;
     font-weight: bold;
     letter-spacing: 3px;
+    box-shadow: 7px 7px 10px rgba(68, 67, 67, 0.46);
 }
 
 button.btn-danger {
@@ -21,16 +21,17 @@ button.btn-danger {
     font-size: 26px;
     font-weight: bold;
     height: 50px;
-
+    text-align: center;
 }
 
 #game_stats {
-    margin: 2em;
+    margin: 2em; 
 }
 
 #letters_used{
     height: 150px;
-    border: 4px dashed #FFF;
+    font-size: 250%;
+    border: 4px dashed #ffc107;
 }
 
 

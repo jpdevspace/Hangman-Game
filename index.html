@@ -11,22 +11,24 @@
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
-    <div class="container">
-        <h1 class="text-center">Hangman</h1>
+    <div class="container bg-light">
+        <h1 class="display-3 text-center mt-2"><span class="font-weight-bold">[H]</span>angman</h1>
         <div class="row">
-            <h1 class="display-2 text-center col"><div id="wordContainer" class="col text-center"></div></h1>
+            <h1 class="display-2 text-center col bg-warning">
+                <div id="wordContainer" class="col text-center"></div>
+            </h1>
         </div>
-        <div id="game_stats" class="row justify-content-around">
-            <button class="btn btn-danger col-2">Start</button>
-            <div id="score" class="col-8 text-center">
-                <h2>Win: <span></span></h2>
-                <h2>Lose: <span></span></h2>
-                <h2>Tries: <span></span></h2>
+        <div id="game_stats" class="d-flex justify-content-center">
+            <button class="btn btn-danger d-flex align-items-center">Start</button>
+            <div id="score" class="col-8 text-center text-info d-flex align-items-center">
+                <h2>Win: <span id="win">0</span>|</h2>
+                <h2>Lose: <span id="lose">0</span>|</h2>
+                <h2>Tries: <span id="tries">5</span></h2>
             </div>
         </div>
         <div class="row">
             <div id="letters_used_container" class="col">
-                <p>Letters already used:</p>
+                <h2>Letters already used:</h2>
                 <div id="letters_used" class="col"></div>
             </div>
         </div>
