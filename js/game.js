@@ -31,11 +31,13 @@
         },
 
         start_game: function() {
-            this.score_win = 0; // 
-            this.score_lose = 0;
             this.score_try = 5;
-            this.letters_used = [];
-            this.underscore_arr  = []
+            this.letters_used_arr = [];
+            this.underscore_arr  = [];
+            this.lose_span.innerHTML = this.score_lose;
+            this.win_span.innerHTML = this.score_win;
+            this.tries_span.innerHTML = this.score_try;
+            this.letters_used_div.innerHTML = "";
             this.under_generator();
         },
 
@@ -45,7 +47,7 @@
             console.log(this.word); // TEST!!!
         },
 
-        under_generator: function() {   // Show _ for every letter of the word to guess
+        under_generator: function() {   // Show an "_" for every letter of the word to guess
             
             this.word_play(); // Get a word
             this.word_l = this.word.length;
@@ -65,18 +67,18 @@
         get_letter: function(event) {   // Get the letter pressed by user
             if(event.type == "keyup") {
                 let p_key = event.key; // Get the key that was pressed
-                let p_key_index = this.word.indexOf(p_key); // Is the key pressed part of the WORD
+                let p_key_index = this.word.indexOf(p_key); // Get the index of the key pressed inside the array
                 
-                if (p_key_index >= 0){ // if the index > 0 means the letter pressed is part of the word
+                if(p_key_index >= 0){ // if the index > 0 means the letter pressed is part of the word
                     this.good_guess(p_key);
-                }
+                } 
                 else { // If the key pressed is not part of the WORD 
-                    if(this.letters_used_arr.indexOf(p_key) <0) { // If the key was not pressed pressed before
-                        this.letters_used_arr.push(p_key); // Add the key to the letters used array
-                        this.score_try--;
-                        this.tries_span.innerHTML = this.score_try;
-                        this.letters_used_div.innerHTML = this.letters_used_arr.join(" "); // Re render the array
-                    }
+                    this.bad_guess(p_key);
+                }
+                if(this.word_arr.join("") == this.underscore_arr.join("")) { // WIN!!!
+                    this.score_win++;
+                    this.win_span.innerHTML = this.score_win;
+                    this.word_container.innerHTML = "YOU WIN!!!";
                 }
             }
 
@@ -89,35 +91,26 @@
                     this.underscore_arr[k] = p_key;  // change the corresponding "_" to match the key as well
                 }
             }
+
+
             this.word_container.innerHTML = this.underscore_arr.join(" "); // Re render that underscore arr (now it contains the guessed letters)
         },
-
-
-            
-            
-
-        // If letter DOESN'T match pass it to the "user used" array and section
-
-            // Was letter pressed before? If it was, IGNORE IT
-
-            // If it wasn't
-
-                // Display it in the "user used" section
-
-                // Update "tries"
-
-                // If Tries == 0, update lose
-
+        bad_guess: function(p_key) {
+            if(this.letters_used_arr.indexOf(p_key) < 0) { // If the key was not pressed before
+                this.letters_used_arr.push(p_key); // Add the key to the letters used array
+                this.score_try--;
+                this.tries_span.innerHTML = this.score_try;
+                if(this.score_try == 0) { // When you lose.
+                    this.score_lose++;
+                    this.lose_span.innerHTML = this.score_lose;
+                    this.word_container.innerHTML = "GAME OVER!";
+                } 
+                else {
+                    this.letters_used_div.innerHTML = this.letters_used_arr.join(" "); // Re render the array
+                }  
+            }
+        }
     }
-
-
-
-
-
-
-// CONSOLE LOG TESTS
-    // This is init word_play
-    // console.log(hangman.word_play());
    
     hangman.init(); // Inits program
 })()
